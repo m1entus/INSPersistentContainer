@@ -57,7 +57,7 @@ const void *NSManagedObjectContextDeallocBlockKey = &NSManagedObjectContextDeall
 
 @implementation NSManagedObjectContext (iOS10Additions)
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 100000
+#if NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
 - (BOOL)automaticallyMergesChangesFromParent {
     return self.ins_automaticallyMergesChangesFromParent;
 }

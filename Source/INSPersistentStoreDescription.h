@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "INSPersistentContainerMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,6 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 100000
+#if NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
 @interface NSPersistentStoreDescription: INSPersistentStoreDescription @end
 #endif

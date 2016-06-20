@@ -18,7 +18,7 @@
 
 @implementation ViewController
 
-- (NSPersistentContainer *)persistentContainer {
+- (INSPersistentContainer *)persistentContainer {
     return ((AppDelegate *)[UIApplication sharedApplication].delegate).persistentContainer;
 }
 

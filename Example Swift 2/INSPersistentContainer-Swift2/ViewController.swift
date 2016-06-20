@@ -14,7 +14,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, NSFetchedRes
     @IBOutlet weak var collectionView: UICollectionView!
     var fetchedResultsController: NSFetchedResultsController!
 
-    var persistentContainer: NSPersistentContainer {
+    var persistentContainer: INSPersistentContainer {
         return ((UIApplication.sharedApplication().delegate as? AppDelegate)?.persistentContainer)!
     }
     

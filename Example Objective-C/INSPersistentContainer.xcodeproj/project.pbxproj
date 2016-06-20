@@ -14,6 +14,16 @@
 		646890D41D170047002FFD30 /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CD1D170047002FFD30 /* INSPersistentStoreDescription.m */; };
 		646890D51D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */; };
 		646890D61D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
+		648104201D185F8400D157E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6481041F1D185F8400D157E6 /* AppDelegate.m */; };
+		648104231D185F8400D157E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 648104221D185F8400D157E6 /* main.m */; };
+		648104261D185F8400D157E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648104251D185F8400D157E6 /* ViewController.m */; };
+		648104281D185F8400D157E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 648104271D185F8400D157E6 /* Assets.xcassets */; };
+		6481042B1D185F8400D157E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 648104291D185F8400D157E6 /* Main.storyboard */; };
+		648104301D185F9800D157E6 /* INSDataStackContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890C91D170047002FFD30 /* INSDataStackContainer.m */; };
+		648104311D185F9800D157E6 /* INSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CB1D170047002FFD30 /* INSPersistentContainer.m */; };
+		648104321D185F9800D157E6 /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CD1D170047002FFD30 /* INSPersistentStoreDescription.m */; };
+		648104331D185F9800D157E6 /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */; };
+		648104341D185F9800D157E6 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
 		64C8FB581D16DE00002ABB54 /* INSPersistentContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64C8FB561D16DE00002ABB54 /* INSPersistentContainer.xcdatamodeld */; };
 		64DCE55B1D11E989002AB5F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DCE55A1D11E989002AB5F8 /* main.m */; };
 		64DCE55E1D11E989002AB5F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DCE55D1D11E989002AB5F8 /* AppDelegate.m */; };
@@ -38,6 +48,16 @@
 		646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+iOS10Additions.m"; sourceTree = "<group>"; };
 		646890D01D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.h"; sourceTree = "<group>"; };
 		646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.m"; sourceTree = "<group>"; };
+		6481041C1D185F8400D157E6 /* INSPersistentContainerOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INSPersistentContainerOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6481041E1D185F8400D157E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6481041F1D185F8400D157E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		648104221D185F8400D157E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		648104241D185F8400D157E6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		648104251D185F8400D157E6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		648104271D185F8400D157E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6481042A1D185F8400D157E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6481042C1D185F8400D157E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64ADD97E1D1862F400F7020E /* INSPersistentContainerMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSPersistentContainerMacros.h; sourceTree = "<group>"; };
 		64C8FB571D16DE00002ABB54 /* INSPersistentContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = INSPersistentContainer.xcdatamodel; sourceTree = "<group>"; };
 		64DCE5561D11E989002AB5F8 /* INSPersistentContainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INSPersistentContainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DCE55A1D11E989002AB5F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,6 +72,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		648104191D185F8400D157E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DCE5531D11E989002AB5F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,15 +102,40 @@
 				646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */,
 				646890D01D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */,
 				646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */,
+				64ADD97E1D1862F400F7020E /* INSPersistentContainerMacros.h */,
 			);
 			name = Source;
 			path = ../../Source;
+			sourceTree = "<group>";
+		};
+		6481041D1D185F8400D157E6 /* INSPersistentContainerOSX */ = {
+			isa = PBXGroup;
+			children = (
+				6481041E1D185F8400D157E6 /* AppDelegate.h */,
+				6481041F1D185F8400D157E6 /* AppDelegate.m */,
+				648104241D185F8400D157E6 /* ViewController.h */,
+				648104251D185F8400D157E6 /* ViewController.m */,
+				648104271D185F8400D157E6 /* Assets.xcassets */,
+				648104291D185F8400D157E6 /* Main.storyboard */,
+				6481042C1D185F8400D157E6 /* Info.plist */,
+				648104211D185F8400D157E6 /* Supporting Files */,
+			);
+			path = INSPersistentContainerOSX;
+			sourceTree = "<group>";
+		};
+		648104211D185F8400D157E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				648104221D185F8400D157E6 /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		64DCE54D1D11E989002AB5F8 = {
 			isa = PBXGroup;
 			children = (
 				64DCE5581D11E989002AB5F8 /* INSPersistentContainer */,
+				6481041D1D185F8400D157E6 /* INSPersistentContainerOSX */,
 				64DCE5571D11E989002AB5F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				64DCE5561D11E989002AB5F8 /* INSPersistentContainer.app */,
+				6481041C1D185F8400D157E6 /* INSPersistentContainerOSX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +182,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6481041B1D185F8400D157E6 /* INSPersistentContainerOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6481042F1D185F8400D157E6 /* Build configuration list for PBXNativeTarget "INSPersistentContainerOSX" */;
+			buildPhases = (
+				648104181D185F8400D157E6 /* Sources */,
+				648104191D185F8400D157E6 /* Frameworks */,
+				6481041A1D185F8400D157E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = INSPersistentContainerOSX;
+			productName = INSPersistentContainerOSX;
+			productReference = 6481041C1D185F8400D157E6 /* INSPersistentContainerOSX.app */;
+			productType = "com.apple.product-type.application";
+		};
 		64DCE5551D11E989002AB5F8 /* INSPersistentContainer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64DCE5701D11E989002AB5F8 /* Build configuration list for PBXNativeTarget "INSPersistentContainer" */;
@@ -155,6 +225,12 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Michal Zaborowski";
 				TargetAttributes = {
+					6481041B1D185F8400D157E6 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 97KW7JU3Q3;
+						DevelopmentTeamName = "Michal Zaborowski (Personal Team)";
+						ProvisioningStyle = Automatic;
+					};
 					64DCE5551D11E989002AB5F8 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 97KW7JU3Q3;
@@ -177,11 +253,21 @@
 			projectRoot = "";
 			targets = (
 				64DCE5551D11E989002AB5F8 /* INSPersistentContainer */,
+				6481041B1D185F8400D157E6 /* INSPersistentContainerOSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6481041A1D185F8400D157E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648104281D185F8400D157E6 /* Assets.xcassets in Resources */,
+				6481042B1D185F8400D157E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DCE5541D11E989002AB5F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +281,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		648104181D185F8400D157E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648104261D185F8400D157E6 /* ViewController.m in Sources */,
+				648104341D185F9800D157E6 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */,
+				648104311D185F9800D157E6 /* INSPersistentContainer.m in Sources */,
+				648104231D185F8400D157E6 /* main.m in Sources */,
+				648104331D185F9800D157E6 /* NSManagedObjectContext+iOS10Additions.m in Sources */,
+				648104201D185F8400D157E6 /* AppDelegate.m in Sources */,
+				648104321D185F9800D157E6 /* INSPersistentStoreDescription.m in Sources */,
+				648104301D185F9800D157E6 /* INSDataStackContainer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DCE5521D11E989002AB5F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +317,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		648104291D185F8400D157E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6481042A1D185F8400D157E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		64DCE5621D11E989002AB5F8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -235,6 +344,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6481042D1D185F8400D157E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = INSPersistentContainerOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSPersistentContainerOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6481042E1D185F8400D157E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = INSPersistentContainerOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSPersistentContainerOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		64DCE56E1D11E989002AB5F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,9 +413,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -313,8 +453,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -328,6 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSPersistentContainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -340,12 +482,22 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSPersistentContainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6481042F1D185F8400D157E6 /* Build configuration list for PBXNativeTarget "INSPersistentContainerOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6481042D1D185F8400D157E6 /* Debug */,
+				6481042E1D185F8400D157E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		64DCE5511D11E989002AB5F8 /* Build configuration list for PBXProject "INSPersistentContainer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -50,11 +50,11 @@
 
 @synthesize persistentContainer = _persistentContainer;
 
-- (NSPersistentContainer *)persistentContainer {
+- (INSPersistentContainer *)persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
-            _persistentContainer = [INSDataStackContainer containerWithName:@"INSPersistentContainer"];
+            _persistentContainer = [[INSDataStackContainer alloc] initWithName:@"INSPersistentContainer"];
 
             INSPersistentStoreDescription *desc = [_persistentContainer.persistentStoreDescriptions firstObject];
             desc.shouldAddStoreAsynchronously = NO;

@@ -11,7 +11,7 @@
 #import "INSPersistentContainer.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
+@property (readonly, strong) INSPersistentContainer *persistentContainer;
 @property (strong, nonatomic) UIWindow *window;
 
 
