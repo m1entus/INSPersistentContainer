@@ -6,38 +6,11 @@
 //  Copyright © 2016 Michal Zaborowski. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <TargetConditionals.h>
+#import <Availability.h>
 
-#if TARGET_OS_IOS
-    #ifndef NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
-        #ifdef __IPHONE_10_0
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 0
-        #else
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
-        #endif
-    #endif
-#elsif TARGET_OS_TV
-    #ifndef NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
-        #ifdef __TVOS_10_0
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 0
-        #else
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
-        #endif
-    #endif
-#elsif TARGET_OS_WATCH
-    #ifndef NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
-        #ifdef __WATCHOS_3_0
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 0
-        #else
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
-        #endif
-    #endif
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 100000
+#define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
 #else
-    #ifndef NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
-        #ifdef __MAC_10_12
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 0
-        #else
-            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
-        #endif
-    #endif
+#define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 0
 #endif
