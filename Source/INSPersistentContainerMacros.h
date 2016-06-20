@@ -16,6 +16,22 @@
             #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
         #endif
     #endif
+#elsif TARGET_OS_TV
+    #ifndef NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
+        #ifdef __TVOS_10_0
+            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 0
+        #else
+            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
+        #endif
+    #endif
+#elsif TARGET_OS_WATCH
+    #ifndef NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
+        #ifdef __WATCHOS_3_0
+            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 0
+        #else
+            #define NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK 1
+        #endif
+    #endif
 #else
     #ifndef NS_PERSISTENT_STORE_NOT_AVAILABLE_IN_SDK
         #ifdef __MAC_10_12

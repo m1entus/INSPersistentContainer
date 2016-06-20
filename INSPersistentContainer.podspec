@@ -10,10 +10,13 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
+  s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
 
   s.ios.source_files = 'Source/**/*.{h,m}'
   s.osx.source_files = 'Source/**/*.{h,m}'
   s.tvos.source_files = 'Source/**/*.{h,m}'
+  s.watchos.source_files = 'Source/**/*.{h,m}'
+  
   s.frameworks = 'CoreData'
 end
