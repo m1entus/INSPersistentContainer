@@ -132,7 +132,7 @@ const void *NSManagedObjectContextDeallocBlockKey = &NSManagedObjectContextDeall
     }
     BOOL isRootContext = context.parentContext == nil;
     BOOL isParentContext = self.parentContext == context;
-    if (!(isRootContext || isParentContext) && context != self) {
+    if (!(isRootContext || isParentContext) || context == self) {
         return;
     }
     
