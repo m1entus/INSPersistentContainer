@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.ios.source_files = 'Source/Swift/**/*.{h,m}'
+  s.ios.source_files = 'Source/Swift/**/*.{swift}'
 
   s.frameworks = 'CoreData'
 end
