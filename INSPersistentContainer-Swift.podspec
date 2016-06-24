@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name         = "INSPersistentContainer"
+  s.name         = "INSPersistentContainer-Swift"
   s.version      = "1.0.1"
-  s.summary      = "INSPersistentContainer"
+  s.summary      = "INSPersistentContainer-Swift"
   s.license      = 'MIT'
   s.homepage     = "http://inspace.io"
   s.author       = { "Michał Zaborowski" => "m1entus@gmail.com" }
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.ios.source_files = 'Source/Objective-C/**/*.{h,m}'
+  s.ios.source_files = 'Source/Swift/**/*.{h,m}'
 
   s.frameworks = 'CoreData'
 end

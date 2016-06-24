@@ -14,21 +14,26 @@
 		6415D9B81D186B970096FA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6415D9B71D186B970096FA26 /* Assets.xcassets */; };
 		64673EF41D16F5D600D7868A /* Entity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 64673EF11D16F5D600D7868A /* Entity+CoreDataProperties.m */; };
 		64673EF51D16F5D600D7868A /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 64673EF31D16F5D600D7868A /* Entity.m */; };
-		646890D21D170047002FFD30 /* INSDataStackContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890C91D170047002FFD30 /* INSDataStackContainer.m */; };
-		646890D31D170047002FFD30 /* INSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CB1D170047002FFD30 /* INSPersistentContainer.m */; };
-		646890D41D170047002FFD30 /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CD1D170047002FFD30 /* INSPersistentStoreDescription.m */; };
-		646890D51D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */; };
-		646890D61D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
 		648104201D185F8400D157E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6481041F1D185F8400D157E6 /* AppDelegate.m */; };
 		648104231D185F8400D157E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 648104221D185F8400D157E6 /* main.m */; };
 		648104261D185F8400D157E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648104251D185F8400D157E6 /* ViewController.m */; };
 		648104281D185F8400D157E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 648104271D185F8400D157E6 /* Assets.xcassets */; };
 		6481042B1D185F8400D157E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 648104291D185F8400D157E6 /* Main.storyboard */; };
-		648104301D185F9800D157E6 /* INSDataStackContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890C91D170047002FFD30 /* INSDataStackContainer.m */; };
-		648104311D185F9800D157E6 /* INSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CB1D170047002FFD30 /* INSPersistentContainer.m */; };
-		648104321D185F9800D157E6 /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CD1D170047002FFD30 /* INSPersistentStoreDescription.m */; };
-		648104331D185F9800D157E6 /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */; };
-		648104341D185F9800D157E6 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
+		649534D91D1DE60200FE637D /* INSDataStackContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534CF1D1DE60200FE637D /* INSDataStackContainer.m */; };
+		649534DA1D1DE60200FE637D /* INSDataStackContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534CF1D1DE60200FE637D /* INSDataStackContainer.m */; };
+		649534DB1D1DE60200FE637D /* INSDataStackContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534CF1D1DE60200FE637D /* INSDataStackContainer.m */; };
+		649534DC1D1DE60200FE637D /* INSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D11D1DE60200FE637D /* INSPersistentContainer.m */; };
+		649534DD1D1DE60200FE637D /* INSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D11D1DE60200FE637D /* INSPersistentContainer.m */; };
+		649534DE1D1DE60200FE637D /* INSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D11D1DE60200FE637D /* INSPersistentContainer.m */; };
+		649534DF1D1DE60200FE637D /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D41D1DE60200FE637D /* INSPersistentStoreDescription.m */; };
+		649534E01D1DE60200FE637D /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D41D1DE60200FE637D /* INSPersistentStoreDescription.m */; };
+		649534E11D1DE60200FE637D /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D41D1DE60200FE637D /* INSPersistentStoreDescription.m */; };
+		649534E21D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D61D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m */; };
+		649534E31D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D61D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m */; };
+		649534E41D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D61D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m */; };
+		649534E51D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D81D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
+		649534E61D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D81D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
+		649534E71D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 649534D81D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
 		64C8FB581D16DE00002ABB54 /* INSPersistentContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64C8FB561D16DE00002ABB54 /* INSPersistentContainer.xcdatamodeld */; };
 		64DCE55B1D11E989002AB5F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DCE55A1D11E989002AB5F8 /* main.m */; };
 		64DCE55E1D11E989002AB5F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DCE55D1D11E989002AB5F8 /* AppDelegate.m */; };
@@ -52,16 +57,6 @@
 		64673EF11D16F5D600D7868A /* Entity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Entity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		64673EF21D16F5D600D7868A /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		64673EF31D16F5D600D7868A /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
-		646890C81D170047002FFD30 /* INSDataStackContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDataStackContainer.h; sourceTree = "<group>"; };
-		646890C91D170047002FFD30 /* INSDataStackContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDataStackContainer.m; sourceTree = "<group>"; };
-		646890CA1D170047002FFD30 /* INSPersistentContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPersistentContainer.h; sourceTree = "<group>"; };
-		646890CB1D170047002FFD30 /* INSPersistentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPersistentContainer.m; sourceTree = "<group>"; };
-		646890CC1D170047002FFD30 /* INSPersistentStoreDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPersistentStoreDescription.h; sourceTree = "<group>"; };
-		646890CD1D170047002FFD30 /* INSPersistentStoreDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPersistentStoreDescription.m; sourceTree = "<group>"; };
-		646890CE1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+iOS10Additions.h"; sourceTree = "<group>"; };
-		646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+iOS10Additions.m"; sourceTree = "<group>"; };
-		646890D01D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.h"; sourceTree = "<group>"; };
-		646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.m"; sourceTree = "<group>"; };
 		6481041C1D185F8400D157E6 /* INSPersistentContainerOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INSPersistentContainerOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6481041E1D185F8400D157E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6481041F1D185F8400D157E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,7 +66,17 @@
 		648104271D185F8400D157E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6481042A1D185F8400D157E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6481042C1D185F8400D157E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64ADD97E1D1862F400F7020E /* INSPersistentContainerMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSPersistentContainerMacros.h; sourceTree = "<group>"; };
+		649534CE1D1DE60200FE637D /* INSDataStackContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDataStackContainer.h; sourceTree = "<group>"; };
+		649534CF1D1DE60200FE637D /* INSDataStackContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDataStackContainer.m; sourceTree = "<group>"; };
+		649534D01D1DE60200FE637D /* INSPersistentContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPersistentContainer.h; sourceTree = "<group>"; };
+		649534D11D1DE60200FE637D /* INSPersistentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPersistentContainer.m; sourceTree = "<group>"; };
+		649534D21D1DE60200FE637D /* INSPersistentContainerMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPersistentContainerMacros.h; sourceTree = "<group>"; };
+		649534D31D1DE60200FE637D /* INSPersistentStoreDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPersistentStoreDescription.h; sourceTree = "<group>"; };
+		649534D41D1DE60200FE637D /* INSPersistentStoreDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPersistentStoreDescription.m; sourceTree = "<group>"; };
+		649534D51D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+iOS10Additions.h"; sourceTree = "<group>"; };
+		649534D61D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+iOS10Additions.m"; sourceTree = "<group>"; };
+		649534D71D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.h"; sourceTree = "<group>"; };
+		649534D81D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.m"; sourceTree = "<group>"; };
 		64C8FB571D16DE00002ABB54 /* INSPersistentContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = INSPersistentContainer.xcdatamodel; sourceTree = "<group>"; };
 		64DCE5561D11E989002AB5F8 /* INSPersistentContainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INSPersistentContainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DCE55A1D11E989002AB5F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,25 +138,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		646890C71D170047002FFD30 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				646890C81D170047002FFD30 /* INSDataStackContainer.h */,
-				646890C91D170047002FFD30 /* INSDataStackContainer.m */,
-				646890CA1D170047002FFD30 /* INSPersistentContainer.h */,
-				646890CB1D170047002FFD30 /* INSPersistentContainer.m */,
-				646890CC1D170047002FFD30 /* INSPersistentStoreDescription.h */,
-				646890CD1D170047002FFD30 /* INSPersistentStoreDescription.m */,
-				646890CE1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.h */,
-				646890CF1D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m */,
-				646890D01D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */,
-				646890D11D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */,
-				64ADD97E1D1862F400F7020E /* INSPersistentContainerMacros.h */,
-			);
-			name = Source;
-			path = ../../Source;
-			sourceTree = "<group>";
-		};
 		6481041D1D185F8400D157E6 /* INSPersistentContainerOSX */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +159,25 @@
 				648104221D185F8400D157E6 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		649534CD1D1DE60200FE637D /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				649534CE1D1DE60200FE637D /* INSDataStackContainer.h */,
+				649534CF1D1DE60200FE637D /* INSDataStackContainer.m */,
+				649534D01D1DE60200FE637D /* INSPersistentContainer.h */,
+				649534D11D1DE60200FE637D /* INSPersistentContainer.m */,
+				649534D21D1DE60200FE637D /* INSPersistentContainerMacros.h */,
+				649534D31D1DE60200FE637D /* INSPersistentStoreDescription.h */,
+				649534D41D1DE60200FE637D /* INSPersistentStoreDescription.m */,
+				649534D51D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.h */,
+				649534D61D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m */,
+				649534D71D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */,
+				649534D81D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */,
+			);
+			name = "Objective-C";
+			path = "../../Source/Objective-C";
 			sourceTree = "<group>";
 		};
 		64DCE54D1D11E989002AB5F8 = {
@@ -198,7 +203,7 @@
 		64DCE5581D11E989002AB5F8 /* INSPersistentContainer */ = {
 			isa = PBXGroup;
 			children = (
-				646890C71D170047002FFD30 /* Source */,
+				649534CD1D1DE60200FE637D /* Objective-C */,
 				64673EF01D16F5D600D7868A /* Entity+CoreDataProperties.h */,
 				64673EF11D16F5D600D7868A /* Entity+CoreDataProperties.m */,
 				64673EF21D16F5D600D7868A /* Entity.h */,
@@ -362,8 +367,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6415D9B31D186B970096FA26 /* ViewController.m in Sources */,
+				649534E71D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */,
+				649534DE1D1DE60200FE637D /* INSPersistentContainer.m in Sources */,
 				6415D9B01D186B970096FA26 /* AppDelegate.m in Sources */,
+				649534E41D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m in Sources */,
 				6415D9AD1D186B970096FA26 /* main.m in Sources */,
+				649534E11D1DE60200FE637D /* INSPersistentStoreDescription.m in Sources */,
+				649534DB1D1DE60200FE637D /* INSDataStackContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,13 +382,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				648104261D185F8400D157E6 /* ViewController.m in Sources */,
-				648104341D185F9800D157E6 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */,
-				648104311D185F9800D157E6 /* INSPersistentContainer.m in Sources */,
+				649534E61D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */,
+				649534DD1D1DE60200FE637D /* INSPersistentContainer.m in Sources */,
 				648104231D185F8400D157E6 /* main.m in Sources */,
-				648104331D185F9800D157E6 /* NSManagedObjectContext+iOS10Additions.m in Sources */,
+				649534E31D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m in Sources */,
 				648104201D185F8400D157E6 /* AppDelegate.m in Sources */,
-				648104321D185F9800D157E6 /* INSPersistentStoreDescription.m in Sources */,
-				648104301D185F9800D157E6 /* INSDataStackContainer.m in Sources */,
+				649534E01D1DE60200FE637D /* INSPersistentStoreDescription.m in Sources */,
+				649534DA1D1DE60200FE637D /* INSDataStackContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,15 +397,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				64673EF51D16F5D600D7868A /* Entity.m in Sources */,
-				646890D31D170047002FFD30 /* INSPersistentContainer.m in Sources */,
+				649534DC1D1DE60200FE637D /* INSPersistentContainer.m in Sources */,
 				64DCE5611D11E989002AB5F8 /* ViewController.m in Sources */,
 				64C8FB581D16DE00002ABB54 /* INSPersistentContainer.xcdatamodeld in Sources */,
 				64673EF41D16F5D600D7868A /* Entity+CoreDataProperties.m in Sources */,
 				64DCE55E1D11E989002AB5F8 /* AppDelegate.m in Sources */,
-				646890D61D170047002FFD30 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */,
-				646890D51D170047002FFD30 /* NSManagedObjectContext+iOS10Additions.m in Sources */,
-				646890D21D170047002FFD30 /* INSDataStackContainer.m in Sources */,
-				646890D41D170047002FFD30 /* INSPersistentStoreDescription.m in Sources */,
+				649534E51D1DE60200FE637D /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */,
+				649534E21D1DE60200FE637D /* NSManagedObjectContext+iOS10Additions.m in Sources */,
+				649534D91D1DE60200FE637D /* INSDataStackContainer.m in Sources */,
+				649534DF1D1DE60200FE637D /* INSPersistentStoreDescription.m in Sources */,
 				64DCE55B1D11E989002AB5F8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,6 +630,7 @@
 				6415D9BB1D186B970096FA26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6481042F1D185F8400D157E6 /* Build configuration list for PBXNativeTarget "INSPersistentContainerOSX" */ = {
 			isa = XCConfigurationList;

@@ -7,19 +7,14 @@
 //
 
 import UIKit
-import INSPersistentContainerFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     lazy var persistentContainer: INSPersistentContainer = {
         let stack = INSDataStackContainer(name: "INSPersistentContainer")
-        let desc = (stack.persistentStoreDescriptions as NSArray).firstObject as? INSPersistentStoreDescription
-        
-        desc?.shouldAddStoreAsynchronously = false
         stack.loadPersistentStoresWithCompletionHandler({ desc, error in
             if error != nil {
                 print(error)

@@ -9,6 +9,18 @@
 #import "INSDataStackContainer.h"
 #import "NSManagedObjectContext+iOS10Additions.h"
 
+@interface INSDataStackContainerManagedObjectContext : NSManagedObjectContext
+@end
+
+@implementation INSDataStackContainerManagedObjectContext
+
+- (void)dealloc {
+    self.ins_automaticallyObtainPermanentIDsForInsertedObjects = NO;
+    self.ins_automaticallyMergesChangesFromParent = NO;
+}
+
+@end
+
 @implementation INSDataStackContainer
 
 - (instancetype)initWithName:(NSString *)name managedObjectModel:(NSManagedObjectModel *)model {
@@ -19,7 +31,12 @@
 }
 
 - (NSManagedObjectContext *)newBackgroundContext {
-    NSManagedObjectContext *context = [super newBackgroundContext];
+    NSManagedObjectContext *context = [[INSDataStackContainerManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    if (self.viewContext.parentContext) {
+        context.parentContext = self.viewContext.parentContext;
+    } else {
+        context.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    }
     context.ins_automaticallyObtainPermanentIDsForInsertedObjects = YES;
     return context;
 }

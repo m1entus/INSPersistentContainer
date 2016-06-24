@@ -14,7 +14,6 @@
 @interface INSPersistentContainer ()
 @property (copy) NSString *name;
 @property (strong) NSManagedObjectContext *viewContext;
-@property (strong) NSManagedObjectModel *managedObjectModel;
 @property (strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @end
 
@@ -31,6 +30,10 @@
         _defaultDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     });
     return _defaultDirectoryURL;
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+    return self->_storeCoordinator.managedObjectModel;
 }
 
 + (instancetype)persistentContainerWithName:(NSString *)name {

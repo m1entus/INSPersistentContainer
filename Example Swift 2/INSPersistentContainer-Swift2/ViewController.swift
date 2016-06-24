@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import INSPersistentContainerFramework
 
 class ViewController: UIViewController, UICollectionViewDataSource, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,6 +16,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, NSFetchedRes
     var persistentContainer: INSPersistentContainer {
         return ((UIApplication.sharedApplication().delegate as? AppDelegate)?.persistentContainer)!
     }
+    
+    var context: NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
