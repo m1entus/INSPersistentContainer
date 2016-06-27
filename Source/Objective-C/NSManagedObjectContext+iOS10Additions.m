@@ -97,9 +97,9 @@
     [self performBlock:^{
         // WORKAROUND FOR: http://stackoverflow.com/questions/3923826/nsfetchedresultscontroller-with-predicate-ignores-changes-merged-from-different/3927811#3927811
         NSSet <NSManagedObject *> *updatedObjects = notification.userInfo[NSUpdatedObjectsKey];
-        [updatedObjects enumerateObjectsUsingBlock:^(NSManagedObject * _Nonnull obj, BOOL * _Nonnull stop) {
+        for (NSManagedObject *obj in updatedObjects) {
             [[self objectWithID:obj.objectID] willAccessValueForKey:nil]; // ensures that a fault has been fired
-        }];
+        }
         
         [self mergeChangesFromContextDidSaveNotification:notification];
     }];
