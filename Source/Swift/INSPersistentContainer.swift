@@ -27,32 +27,46 @@ import Foundation
 import CoreData
 
 // An instance of NSPersistentContainer includes all objects needed to represent a functioning Core Data stack, and provides convenience methods and properties for common patterns.
-public class INSPersistentContainer {
-    
-    public class func defaultDirectoryURL() -> NSURL {
+open class INSPersistentContainer {
+    open class func defaultDirectoryURL() -> URL {
         struct Static {
-            static let instance: NSURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+            static let instance: URL = {
+                guard let applicationSupportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {
+                    fatalError("Found no possible URLs for directory type \(FileManager.SearchPathDirectory.applicationSupportDirectory)")
+                }
+                
+                var isDirectory = ObjCBool(false)
+                if !FileManager.default.fileExists(atPath: applicationSupportURL.path, isDirectory: &isDirectory) {
+                    do {
+                        try FileManager.default.createDirectory(at: applicationSupportURL, withIntermediateDirectories: true, attributes: nil)
+                        return applicationSupportURL
+                    } catch {
+                        fatalError("Failed to create directory \(applicationSupportURL)")
+                    }
+                }
+                return applicationSupportURL
+            }()
         }
         return Static.instance
     }
     
-    public private(set) var name: String
-    public var viewContext: NSManagedObjectContext
-    public var managedObjectModel: NSManagedObjectModel {
+    open private(set) var name: String
+    open private(set) var viewContext: NSManagedObjectContext
+    open var managedObjectModel: NSManagedObjectModel {
         return persistentStoreCoordinator.managedObjectModel
     }
-    public private(set) var persistentStoreCoordinator: NSPersistentStoreCoordinator
-    public private(set) var persistentStoreDescriptions: [INSPersistentStoreDescription]
+    open private(set) var persistentStoreCoordinator: NSPersistentStoreCoordinator
+    open var persistentStoreDescriptions: [INSPersistentStoreDescription]
     
     public convenience init(name: String) {
-        if let modelURL = NSBundle.mainBundle().URLForResource(name, withExtension: "mom") ?? NSBundle.mainBundle().URLForResource(name, withExtension: "momd") {
-            if let model = NSManagedObjectModel(contentsOfURL: modelURL) {
+        if let modelURL = Bundle.main.url(forResource: name, withExtension: "mom") ?? Bundle.main.url(forResource: name, withExtension: "momd") {
+            if let model = NSManagedObjectModel(contentsOf: modelURL) {
                 self.init(name: name, managedObjectModel: model)
                 return
             }
             print("CoreData: Failed to load model at path: \(modelURL)")
         }
-        guard let model = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()]) else {
+        guard let model = NSManagedObjectModel.mergedModel(from: [Bundle.main]) else {
             fatalError("Couldn't find managed object model in main bundle.")
         }
         self.init(name: name, managedObjectModel: model)
@@ -61,31 +75,31 @@ public class INSPersistentContainer {
     public init(name: String, managedObjectModel model: NSManagedObjectModel) {
         self.name = name
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        self.viewContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        self.viewContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         self.viewContext.persistentStoreCoordinator = persistentStoreCoordinator
-        self.persistentStoreDescriptions = [INSPersistentStoreDescription(URL: self.dynamicType.defaultDirectoryURL().URLByAppendingPathComponent("\(name).sqlite"))]
+        self.persistentStoreDescriptions = [INSPersistentStoreDescription(url: type(of: self).defaultDirectoryURL().appendingPathComponent("\(name).sqlite"))]
     }
     
     // Load stores from the storeDescriptions property that have not already been successfully added to the container. The completion handler is called once for each store that succeeds or fails.
-    public func loadPersistentStoresWithCompletionHandler(block: (INSPersistentStoreDescription, NSError?) -> Void) {
+    open func loadPersistentStores(completionHandler block: @escaping (INSPersistentStoreDescription, Error?) -> Swift.Void) {
         for persistentStoreDescription in persistentStoreDescriptions {
-            persistentStoreCoordinator.ins_addPersistentStoreWithDescription(persistentStoreDescription, completionHandler: block)
+            persistentStoreCoordinator.ins_addPersistentStore(with: persistentStoreDescription, completionHandler: block)
         }
     }
-    
-    public func newBackgroundContext() -> NSManagedObjectContext {
-        let context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-        if let parentContext = viewContext.parentContext {
-            context.parentContext = parentContext
+
+    open func newBackgroundContext() -> NSManagedObjectContext {
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        if let parentContext = viewContext.parent {
+            context.parent = parentContext
         } else {
             context.persistentStoreCoordinator = persistentStoreCoordinator
         }
         return context
     }
     
-    public func performBackgroundTask(block: (NSManagedObjectContext) -> Void) {
+    open func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void) {
         let context = newBackgroundContext()
-        context.performBlock { 
+        context.perform { 
             block(context)
         }
     }
