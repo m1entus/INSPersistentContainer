@@ -30,11 +30,22 @@ extension NSManagedObjectContext {
     private struct AssociatedKeys {
         static var MergesChangesFromParent: String = "ins_automaticallyMergesChangesFromParent"
         static var ObtainPermamentIDsForInsertedObjects: String = "ins_automaticallyObtainPermanentIDsForInsertedObjects"
+        static var NotificationQueue: String = "ins_notificationQueue"
     }
+    
+    private var notificationQueue: dispatch_queue_t {
+        guard let notificationQueue = objc_getAssociatedObject(self, &AssociatedKeys.NotificationQueue) as? dispatch_queue_t else {
+            let queue = dispatch_queue_create("io.inspace.managedobjectcontext.notificationqueue", nil)
+            objc_setAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects, queue, .OBJC_ASSOCIATION_RETAIN)
+            return queue
+        }
+        return notificationQueue
+    }
+
 
     var ins_automaticallyObtainPermanentIDsForInsertedObjects: Bool {
         set {
-            performBlockAndWait {
+            dispatch_sync(notificationQueue) { 
                 if newValue != self.ins_automaticallyObtainPermanentIDsForInsertedObjects {
                     objc_setAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     if newValue {
@@ -44,11 +55,10 @@ extension NSManagedObjectContext {
                     }
                 }
             }
-            
         }
         get {
             var value = false
-            performBlockAndWait { 
+            dispatch_sync(notificationQueue) {
                 value = objc_getAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects) as? Bool ?? false
             }
             return value
@@ -63,7 +73,7 @@ extension NSManagedObjectContext {
             if parentContext == nil && persistentStoreCoordinator == nil {
                 fatalError("Cannot enable automatic merging for a context without a parent, set a parent context or persistent store coordinator first.")
             }
-            performBlockAndWait { 
+            dispatch_sync(notificationQueue) {
                 if newValue != self.ins_automaticallyMergesChangesFromParent {
                     objc_setAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     if newValue {
@@ -79,7 +89,7 @@ extension NSManagedObjectContext {
                 return false
             }
             var value = false
-            performBlockAndWait {
+            dispatch_sync(notificationQueue) {
                 value = objc_getAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent) as? Bool ?? false
             }
             return value
@@ -99,7 +109,10 @@ extension NSManagedObjectContext {
             // WORKAROUND FOR: http://stackoverflow.com/questions/3923826/nsfetchedresultscontroller-with-predicate-ignores-changes-merged-from-different/3927811#3927811
             if let updatedObjects = notification.userInfo?[NSUpdatedObjectsKey] as? Set<NSManagedObject> where !updatedObjects.isEmpty {
                 for updatedObject in updatedObjects {
-                    self.objectWithID(updatedObject.objectID).willAccessValueForKey(nil) // ensures that a fault has been fired
+                    guard let object = try? self.existingObjectWithID(updatedObject.objectID) else {
+                        continue
+                    }
+                    object.willAccessValueForKey(nil) // ensures that a fault has been fired
                 }
             }
 
@@ -111,6 +124,8 @@ extension NSManagedObjectContext {
         guard let context = notification.object as? NSManagedObjectContext where context.insertedObjects.count > 0 else {
             return
         }
-        _ = try? context.obtainPermanentIDsForObjects(Array(context.insertedObjects))
+        context.performBlock { 
+            _ = try? context.obtainPermanentIDsForObjects(Array(context.insertedObjects))
+        }
     }
 }

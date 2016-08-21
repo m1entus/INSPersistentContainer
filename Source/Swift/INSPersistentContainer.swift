@@ -31,7 +31,21 @@ public class INSPersistentContainer {
     
     public class func defaultDirectoryURL() -> NSURL {
         struct Static {
-            static let instance: NSURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+            static let instance: NSURL = {
+                guard let applicationSupportURL = NSFileManager.defaultManager().URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask).first else {
+                    fatalError("Found no possible URLs for directory type \(NSSearchPathDirectory.ApplicationSupportDirectory)")
+                }
+                
+                var isDirectory = ObjCBool(false)
+                if !NSFileManager.defaultManager().fileExistsAtPath(applicationSupportURL.path!, isDirectory: &isDirectory) {
+                    do {
+                        try NSFileManager.defaultManager().createDirectoryAtURL(applicationSupportURL, withIntermediateDirectories: true, attributes: nil)
+                    } catch {
+                        fatalError("Failed to create directory \(applicationSupportURL)")
+                    }
+                }
+                return applicationSupportURL
+            }()
         }
         return Static.instance
     }
@@ -63,7 +77,11 @@ public class INSPersistentContainer {
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         self.viewContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         self.viewContext.persistentStoreCoordinator = persistentStoreCoordinator
-        self.persistentStoreDescriptions = [INSPersistentStoreDescription(URL: self.dynamicType.defaultDirectoryURL().URLByAppendingPathComponent("\(name).sqlite"))]
+        #if swift(>=2.3)
+            self.persistentStoreDescriptions = [INSPersistentStoreDescription(URL: self.dynamicType.defaultDirectoryURL().URLByAppendingPathComponent("\(name).sqlite")!)]
+        #else
+            self.persistentStoreDescriptions = [INSPersistentStoreDescription(URL: self.dynamicType.defaultDirectoryURL().URLByAppendingPathComponent("\(name).sqlite"))]
+        #endif
     }
     
     // Load stores from the storeDescriptions property that have not already been successfully added to the container. The completion handler is called once for each store that succeeds or fails.

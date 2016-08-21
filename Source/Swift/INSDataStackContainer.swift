@@ -28,14 +28,24 @@ import CoreData
 class INSDataStackContainer: INSPersistentContainer {
     private class INSDataStackContainerManagedObjectContext: NSManagedObjectContext {
         deinit {
-            self.ins_automaticallyMergesChangesFromParent = false
             self.ins_automaticallyObtainPermanentIDsForInsertedObjects = false
+            
+            guard #available(iOS 10.0, OSX 10.12, *) else {
+                self.ins_automaticallyMergesChangesFromParent = false
+                return
+            }
         }
     }
     
     override init(name: String, managedObjectModel model: NSManagedObjectModel) {
         super.init(name: name, managedObjectModel: model)
-        viewContext.ins_automaticallyMergesChangesFromParent = true
+        if #available(iOS 10.0, OSX 10.12, *) {
+            #if swift(>=2.3)
+                viewContext.automaticallyMergesChangesFromParent = true
+            #endif
+        } else {
+            viewContext.ins_automaticallyMergesChangesFromParent = true
+        }
     }
     
     override func newBackgroundContext() -> NSManagedObjectContext {
