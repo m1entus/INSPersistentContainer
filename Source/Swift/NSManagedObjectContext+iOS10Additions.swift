@@ -49,7 +49,7 @@ extension NSManagedObjectContext {
     var ins_automaticallyObtainPermanentIDsForInsertedObjects: Bool {
         set {
             dispatch_sync(notificationQueue) { 
-                if newValue != self.ins_automaticallyObtainPermanentIDsForInsertedObjects {
+                if newValue != self._ins_automaticallyObtainPermanentIDsForInsertedObjects {
                     objc_setAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     if newValue {
                         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NSManagedObjectContext.ins_automaticallyObtainPermanentIDsForInsertedObjectsFromWillSaveNotification(_:)), name: NSManagedObjectContextWillSaveNotification, object: self)
@@ -81,7 +81,7 @@ extension NSManagedObjectContext {
                 fatalError("Cannot enable automatic merging for a context without a parent, set a parent context or persistent store coordinator first.")
             }
             dispatch_sync(notificationQueue) {
-                if newValue != self.ins_automaticallyMergesChangesFromParent {
+                if newValue != self._ins_automaticallyMergesChangesFromParent {
                     objc_setAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     if newValue {
                         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NSManagedObjectContext.ins_automaticallyMergeChangesFromContextDidSaveNotification(_:)), name: NSManagedObjectContextDidSaveNotification, object: self.parentContext)
