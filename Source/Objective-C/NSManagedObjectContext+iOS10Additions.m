@@ -26,17 +26,30 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextWillSaveNotification object:nil];
 }
 
+- (dispatch_queue_t)notificationQueue {
+    dispatch_queue_t queue = objc_getAssociatedObject(self, @selector(notificationQueue));
+    if (!queue) {
+        queue = dispatch_queue_create("io.inspace.managedobjectcontext.notificationqueue", nil);
+        objc_setAssociatedObject(self, @selector(notificationQueue), queue, OBJC_ASSOCIATION_RETAIN);
+    }
+    return queue;
+}
+
 - (BOOL)ins_automaticallyObtainPermanentIDsForInsertedObjects {
     __block BOOL value = NO;
-    [self performBlockAndWait:^{
-        value = [objc_getAssociatedObject(self, @selector(ins_automaticallyObtainPermanentIDsForInsertedObjects)) boolValue];
-    }];
+    dispatch_sync(self.notificationQueue, ^{
+        value = [self _ins_automaticallyObtainPermanentIDsForInsertedObjects];
+    });
     return value;
 }
 
+- (BOOL)_ins_automaticallyObtainPermanentIDsForInsertedObjects {
+    return [objc_getAssociatedObject(self, @selector(ins_automaticallyObtainPermanentIDsForInsertedObjects)) boolValue];
+}
+
 - (void)setIns_automaticallyObtainPermanentIDsForInsertedObjects:(BOOL)ins_automaticallyObtainPermanentIDsForInsertedObjects {
-    [self performBlockAndWait:^{
-        if (ins_automaticallyObtainPermanentIDsForInsertedObjects != self.ins_automaticallyObtainPermanentIDsForInsertedObjects) {
+    dispatch_sync(self.notificationQueue, ^{
+        if (ins_automaticallyObtainPermanentIDsForInsertedObjects != self._ins_automaticallyObtainPermanentIDsForInsertedObjects) {
             objc_setAssociatedObject(self, @selector(ins_automaticallyObtainPermanentIDsForInsertedObjects), @(ins_automaticallyObtainPermanentIDsForInsertedObjects), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             if (ins_automaticallyObtainPermanentIDsForInsertedObjects) {
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ins_automaticallyObtainPermanentIDsForInsertedObjectsFromWillSaveNotification:) name:NSManagedObjectContextWillSaveNotification object:self];
@@ -44,7 +57,7 @@
                 [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextWillSaveNotification object:nil];
             }
         }
-    }];
+    });
 }
 
 - (BOOL)ins_automaticallyMergesChangesFromParent {
@@ -55,10 +68,14 @@
         return NO;
     }
     __block BOOL value = NO;
-    [self performBlockAndWait:^{
-        value = [objc_getAssociatedObject(self, @selector(ins_automaticallyMergesChangesFromParent)) boolValue];
-    }];
+    dispatch_sync(self.notificationQueue, ^{
+        value = [self _ins_automaticallyMergesChangesFromParent];
+    });
     return value;
+}
+
+- (BOOL)_ins_automaticallyMergesChangesFromParent {
+    return [objc_getAssociatedObject(self, @selector(ins_automaticallyMergesChangesFromParent)) boolValue];
 }
 
 - (void)setIns_automaticallyMergesChangesFromParent:(BOOL)ins_automaticallyMergesChangesFromParent {
@@ -71,8 +88,8 @@
     if (self.parentContext == nil && self.persistentStoreCoordinator == nil) {
         [[NSException exceptionWithName:NSInternalInconsistencyException reason:@"Cannot enable automatic merging for a context without a parent, set a parent context or persistent store coordinator first." userInfo:0x0] raise];
     }
-    [self performBlockAndWait:^{
-        if (ins_automaticallyMergesChangesFromParent != self.ins_automaticallyMergesChangesFromParent) {
+    dispatch_sync(self.notificationQueue, ^{
+        if (ins_automaticallyMergesChangesFromParent != [self _ins_automaticallyMergesChangesFromParent]) {
             objc_setAssociatedObject(self, @selector(ins_automaticallyMergesChangesFromParent), @(ins_automaticallyMergesChangesFromParent), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             if (ins_automaticallyMergesChangesFromParent) {
                 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ins_automaticallyMergeChangesFromContextDidSaveNotification:) name:NSManagedObjectContextDidSaveNotification object:self.parentContext];
@@ -80,7 +97,7 @@
                 [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextDidSaveNotification object:nil];
             }
         }
-    }];
+    });
 }
 
 - (void)ins_automaticallyMergeChangesFromContextDidSaveNotification:(NSNotification *)notification {
@@ -98,7 +115,7 @@
         // WORKAROUND FOR: http://stackoverflow.com/questions/3923826/nsfetchedresultscontroller-with-predicate-ignores-changes-merged-from-different/3927811#3927811
         NSSet <NSManagedObject *> *updatedObjects = notification.userInfo[NSUpdatedObjectsKey];
         for (NSManagedObject *obj in updatedObjects) {
-            [[self objectWithID:obj.objectID] willAccessValueForKey:nil]; // ensures that a fault has been fired
+            [[self existingObjectWithID:obj.objectID error:nil] willAccessValueForKey:nil]; // ensures that a fault has been fired
         }
         
         [self mergeChangesFromContextDidSaveNotification:notification];
@@ -110,7 +127,9 @@
     if (context.insertedObjects.count <= 0) {
         return;
     }
-    [context obtainPermanentIDsForObjects:[context.insertedObjects allObjects] error:nil];
+    [context performBlock:^{
+        [context obtainPermanentIDsForObjects:[context.insertedObjects allObjects] error:nil];
+    }];
 }
 
 + (void)load {

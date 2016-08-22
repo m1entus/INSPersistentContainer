@@ -42,7 +42,10 @@ extension NSManagedObjectContext {
         return notificationQueue
     }
 
-
+    private var _ins_automaticallyObtainPermanentIDsForInsertedObjects: Bool {
+        return objc_getAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects) as? Bool ?? false
+    }
+    
     var ins_automaticallyObtainPermanentIDsForInsertedObjects: Bool {
         set {
             dispatch_sync(notificationQueue) { 
@@ -59,10 +62,14 @@ extension NSManagedObjectContext {
         get {
             var value = false
             dispatch_sync(notificationQueue) {
-                value = objc_getAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects) as? Bool ?? false
+                value = self._ins_automaticallyObtainPermanentIDsForInsertedObjects
             }
             return value
         }
+    }
+    
+    private var _ins_automaticallyMergesChangesFromParent: Bool {
+        return objc_getAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent) as? Bool ?? false
     }
     
     var ins_automaticallyMergesChangesFromParent: Bool {
@@ -90,7 +97,7 @@ extension NSManagedObjectContext {
             }
             var value = false
             dispatch_sync(notificationQueue) {
-                value = objc_getAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent) as? Bool ?? false
+                value = self._ins_automaticallyMergesChangesFromParent
             }
             return value
         }

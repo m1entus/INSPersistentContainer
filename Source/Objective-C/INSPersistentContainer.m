@@ -27,7 +27,21 @@
     static dispatch_once_t onceToken;
     static NSURL *_defaultDirectoryURL = nil;
     dispatch_once(&onceToken, ^{
-        _defaultDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+        NSURL *applicationSupportURL = [[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] firstObject];
+        if (!applicationSupportURL) {
+            NSLog(@"Found no possible URLs for directory type \(NSSearchPathDirectory.ApplicationSupportDirectory)");
+            return;
+        }
+        BOOL isDirectory = NO;
+        if (![[NSFileManager defaultManager] fileExistsAtPath:applicationSupportURL.path isDirectory:&isDirectory]) {
+            NSError *error = nil;
+            [[NSFileManager defaultManager] createDirectoryAtURL:applicationSupportURL withIntermediateDirectories:YES attributes:nil error:&error];
+            if (error) {
+                NSLog(@"Failed to create directory %@",applicationSupportURL);
+                return;
+            }
+        }
+        _defaultDirectoryURL = applicationSupportURL;
     });
     return _defaultDirectoryURL;
 }
