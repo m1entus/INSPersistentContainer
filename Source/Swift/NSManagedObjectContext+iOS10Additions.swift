@@ -42,10 +42,14 @@ extension NSManagedObjectContext {
         return notificationQueue
     }
     
+    private var _ins_automaticallyObtainPermanentIDsForInsertedObjects: Bool {
+        return objc_getAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects) as? Bool ?? false
+    }
+    
     var ins_automaticallyObtainPermanentIDsForInsertedObjects: Bool {
         set {
             notificationQueue.sync {
-                if newValue != self.ins_automaticallyObtainPermanentIDsForInsertedObjects {
+                if newValue != self._ins_automaticallyObtainPermanentIDsForInsertedObjects {
                     objc_setAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     if newValue {
                         NotificationCenter.default.addObserver(self, selector: #selector(NSManagedObjectContext.ins_automaticallyObtainPermanentIDsForInsertedObjectsFromWillSaveNotification(_:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: self)
@@ -58,10 +62,14 @@ extension NSManagedObjectContext {
         get {
             var value = false
             notificationQueue.sync {
-                value = objc_getAssociatedObject(self, &AssociatedKeys.ObtainPermamentIDsForInsertedObjects) as? Bool ?? false
+                value = self._ins_automaticallyObtainPermanentIDsForInsertedObjects
             }
             return value
         }
+    }
+    
+    private var _ins_automaticallyMergesChangesFromParent: Bool {
+        return objc_getAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent) as? Bool ?? false
     }
     
     var ins_automaticallyMergesChangesFromParent: Bool {
@@ -73,7 +81,7 @@ extension NSManagedObjectContext {
                 fatalError("Cannot enable automatic merging for a context without a parent, set a parent context or persistent store coordinator first.")
             }
             notificationQueue.sync {
-                if newValue != self.ins_automaticallyMergesChangesFromParent {
+                if newValue != self._ins_automaticallyMergesChangesFromParent {
                     objc_setAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     if newValue {
                         NotificationCenter.default.addObserver(self, selector: #selector(NSManagedObjectContext.ins_automaticallyMergeChangesFromContextDidSaveNotification(_:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: self.parent)
@@ -89,7 +97,7 @@ extension NSManagedObjectContext {
             }
             var value = false
             notificationQueue.sync {
-                value = objc_getAssociatedObject(self, &AssociatedKeys.MergesChangesFromParent) as? Bool ?? false
+                value = self._ins_automaticallyMergesChangesFromParent
             }
             return value
         }
@@ -108,10 +116,7 @@ extension NSManagedObjectContext {
             // WORKAROUND FOR: http://stackoverflow.com/questions/3923826/nsfetchedresultscontroller-with-predicate-ignores-changes-merged-from-different/3927811#3927811
             if let updatedObjects = (notification as NSNotification).userInfo?[NSUpdatedObjectsKey] as? Set<NSManagedObject> , !updatedObjects.isEmpty {
                 for updatedObject in updatedObjects {
-                    guard let object = try? self.existingObject(with: updatedObject.objectID) else {
-                        continue
-                    }
-                    object.willAccessValue(forKey: nil) // ensures that a fault has been fired
+                    self.object(with: updatedObject.objectID).willAccessValue(forKey: nil) // ensures that a fault has been fired
                 }
             }
 
