@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		64307C681D1DC952004280F8 /* INSPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64307C671D1DC952004280F8 /* INSPersistentContainer.swift */; };
 		64307C6A1D1DCA11004280F8 /* INSPersistentStoreDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64307C691D1DCA11004280F8 /* INSPersistentStoreDescription.swift */; };
+		64594E0C1D69E9B000B05171 /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64594E0A1D69E9B000B05171 /* Entity+CoreDataClass.swift */; };
+		64594E0D1D69E9B000B05171 /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64594E0B1D69E9B000B05171 /* Entity+CoreDataProperties.swift */; };
 		6468908F1D16FF47002FFD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6468908E1D16FF47002FFD30 /* AppDelegate.swift */; };
 		646890911D16FF47002FFD30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646890901D16FF47002FFD30 /* ViewController.swift */; };
 		646890941D16FF47002FFD30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646890921D16FF47002FFD30 /* Main.storyboard */; };
 		646890961D16FF47002FFD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 646890951D16FF47002FFD30 /* Assets.xcassets */; };
 		646890991D16FF47002FFD30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646890971D16FF47002FFD30 /* LaunchScreen.storyboard */; };
 		646890D91D1703CB002FFD30 /* INSPersistentContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 646890D71D1703CB002FFD30 /* INSPersistentContainer.xcdatamodeld */; };
-		646890DC1D1703E0002FFD30 /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646890DA1D1703E0002FFD30 /* Entity+CoreDataProperties.swift */; };
-		646890DD1D1703E0002FFD30 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646890DB1D1703E0002FFD30 /* Entity.swift */; };
 		649534CA1D1DD6EB00FE637D /* NSManagedObjectContext+iOS10Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649534C91D1DD6EB00FE637D /* NSManagedObjectContext+iOS10Additions.swift */; };
 		649534CC1D1DDF7F00FE637D /* INSDataStackContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649534CB1D1DDF7F00FE637D /* INSDataStackContainer.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +37,8 @@
 /* Begin PBXFileReference section */
 		64307C671D1DC952004280F8 /* INSPersistentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INSPersistentContainer.swift; sourceTree = "<group>"; };
 		64307C691D1DCA11004280F8 /* INSPersistentStoreDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INSPersistentStoreDescription.swift; sourceTree = "<group>"; };
+		64594E0A1D69E9B000B05171 /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		64594E0B1D69E9B000B05171 /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6468908B1D16FF46002FFD30 /* INSPersistentContainer-Swift2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSPersistentContainer-Swift2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6468908E1D16FF47002FFD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		646890901D16FF47002FFD30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,8 +47,6 @@
 		646890981D16FF47002FFD30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6468909A1D16FF47002FFD30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		646890D81D1703CB002FFD30 /* INSPersistentContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = INSPersistentContainer.xcdatamodel; sourceTree = "<group>"; };
-		646890DA1D1703E0002FFD30 /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		646890DB1D1703E0002FFD30 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		649534C91D1DD6EB00FE637D /* NSManagedObjectContext+iOS10Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+iOS10Additions.swift"; sourceTree = "<group>"; };
 		649534CB1D1DDF7F00FE637D /* INSDataStackContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INSDataStackContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,9 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				64307C661D1DC941004280F8 /* Swift */,
-				646890DA1D1703E0002FFD30 /* Entity+CoreDataProperties.swift */,
-				646890DB1D1703E0002FFD30 /* Entity.swift */,
 				646890D71D1703CB002FFD30 /* INSPersistentContainer.xcdatamodeld */,
+				64594E0A1D69E9B000B05171 /* Entity+CoreDataClass.swift */,
+				64594E0B1D69E9B000B05171 /* Entity+CoreDataProperties.swift */,
 				6468908E1D16FF47002FFD30 /* AppDelegate.swift */,
 				646890901D16FF47002FFD30 /* ViewController.swift */,
 				646890921D16FF47002FFD30 /* Main.storyboard */,
@@ -135,11 +135,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Michal Zaborowski";
 				TargetAttributes = {
 					6468908A1D16FF46002FFD30 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -181,12 +182,12 @@
 			files = (
 				646890911D16FF47002FFD30 /* ViewController.swift in Sources */,
 				64307C681D1DC952004280F8 /* INSPersistentContainer.swift in Sources */,
-				646890DD1D1703E0002FFD30 /* Entity.swift in Sources */,
 				646890D91D1703CB002FFD30 /* INSPersistentContainer.xcdatamodeld in Sources */,
-				646890DC1D1703E0002FFD30 /* Entity+CoreDataProperties.swift in Sources */,
+				64594E0D1D69E9B000B05171 /* Entity+CoreDataProperties.swift in Sources */,
 				649534CC1D1DDF7F00FE637D /* INSDataStackContainer.swift in Sources */,
 				64307C6A1D1DCA11004280F8 /* INSPersistentStoreDescription.swift in Sources */,
 				649534CA1D1DD6EB00FE637D /* NSManagedObjectContext+iOS10Additions.swift in Sources */,
+				64594E0C1D69E9B000B05171 /* Entity+CoreDataClass.swift in Sources */,
 				6468908F1D16FF47002FFD30 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,8 +228,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -272,8 +275,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -292,6 +297,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -305,7 +311,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSPersistentContainer-Swift2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -318,7 +324,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSPersistentContainer-Swift2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

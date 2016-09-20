@@ -27,23 +27,24 @@ import Foundation
 import CoreData
 
 // An instance of NSPersistentStoreDescription encapsulates all information needed to describe a persistent store.
-public struct INSPersistentStoreDescription: CustomStringConvertible {
-    public var type: String = "SQLite"
-    public var configuration: String?
-    
-    public var URL: NSURL
-    public private(set) var options: [String : NSObject] = [:]
 
-    public var sqlitePragmas: [String : NSObject] {
-        return options[NSSQLitePragmasOption] as? [String : NSObject] ?? [:]
+open class INSPersistentStoreDescription: CustomStringConvertible {
+    open var type: String = "SQLite"
+    open var configuration: String?
+    
+    open var url: Foundation.URL
+    open private(set) var options: [String : Any] = [:]
+
+    open var sqlitePragmas: [String : Any] {
+        return options[NSSQLitePragmasOption] as? [String : Any] ?? [:]
     }
     
-    public var description: String {
-        return "type: \(type), url: \(URL)"
+    open var description: String {
+        return "type: \(type), url: \(url)"
     }
     
     // addPersistentStore-time behaviours
-    public var shouldAddStoreAsynchronously: Bool {
+    open var shouldAddStoreAsynchronously: Bool {
         set {
             options["NSAddStoreAsynchronouslyOption"] = newValue
         }
@@ -51,7 +52,7 @@ public struct INSPersistentStoreDescription: CustomStringConvertible {
             return options["NSAddStoreAsynchronouslyOption"] as? Bool ?? false
         }
     }
-    public var shouldMigrateStoreAutomatically: Bool {
+    open var shouldMigrateStoreAutomatically: Bool {
         set {
             options[NSMigratePersistentStoresAutomaticallyOption] = newValue
         }
@@ -59,7 +60,7 @@ public struct INSPersistentStoreDescription: CustomStringConvertible {
             return options[NSMigratePersistentStoresAutomaticallyOption] as? Bool ?? false
         }
     }
-    public var shouldInferMappingModelAutomatically: Bool {
+    open var shouldInferMappingModelAutomatically: Bool {
         set {
             options[NSInferMappingModelAutomaticallyOption] = newValue
         }
@@ -69,7 +70,7 @@ public struct INSPersistentStoreDescription: CustomStringConvertible {
     }
     
     // Store options
-    public var readOnly: Bool {
+    open var isReadOnly: Bool {
         set {
             options[NSReadOnlyPersistentStoreOption] = newValue
         }
@@ -77,48 +78,48 @@ public struct INSPersistentStoreDescription: CustomStringConvertible {
             return options[NSReadOnlyPersistentStoreOption] as? Bool ?? false
         }
     }
-    public var timeout: NSTimeInterval {
+    open var timeout: TimeInterval {
         set {
             options[NSPersistentStoreTimeoutOption] = newValue
         }
         get {
-            return options[NSPersistentStoreTimeoutOption] as? NSTimeInterval ?? 0
+            return options[NSPersistentStoreTimeoutOption] as? TimeInterval ?? 0
         }
     }
     
     // Returns a store description instance with default values for the store located at `URL` that can be used immediately with `addPersistentStoreWithDescription:completionHandler:`.
-    public init(URL url: NSURL) {
-        self.URL = url.copy() as! NSURL
+    public init(url: Foundation.URL) {
+        self.url = (url as NSURL).copy() as! Foundation.URL
         self.shouldMigrateStoreAutomatically = true
         self.shouldInferMappingModelAutomatically = true
     }
     
-    public func setValue(value: NSObject?, forPragmaNamed name: String) {
+    open func setValue(_ value: NSObject?, forPragmaNamed name: String) {
         var pragmas = sqlitePragmas
         if let value = value {
             pragmas[name] = value
         } else {
-            pragmas.removeValueForKey(name)
+            pragmas.removeValue(forKey: name)
         }
-        setOption(pragmas, forKey: NSSQLitePragmasOption)
+        setOption(pragmas as NSObject?, forKey: NSSQLitePragmasOption)
     }
     
-    public func setOption(option: NSObject?, forKey key: String) {
+    open func setOption(_ option: NSObject?, forKey key: String) {
         var options = self.options
         if let option = option {
             options[key] = option
         } else {
-            options.removeValueForKey(key)
+            options.removeValue(forKey: key)
         }
     }
 }
 
 extension NSPersistentStoreCoordinator {
-    public func ins_addPersistentStoreWithDescription(storeDescription: INSPersistentStoreDescription, completionHandler block: (INSPersistentStoreDescription, NSError?) -> Void) {
+    open func ins_addPersistentStore(with storeDescription: INSPersistentStoreDescription, completionHandler block: @escaping (INSPersistentStoreDescription, Error?) -> Swift.Void) {
         if storeDescription.shouldAddStoreAsynchronously {
-            dispatch_async(dispatch_get_global_queue(0, 0), {
+            DispatchQueue.global(qos: .background).async(execute: {
                 do {
-                    try self.addPersistentStoreWithType(storeDescription.type, configuration: storeDescription.configuration, URL: storeDescription.URL, options: storeDescription.options)
+                    try self.addPersistentStore(ofType: storeDescription.type, configurationName: storeDescription.configuration, at: storeDescription.url, options: storeDescription.options)
                     block(storeDescription, nil)
                 } catch let error as NSError {
                     block(storeDescription, error)
@@ -126,7 +127,7 @@ extension NSPersistentStoreCoordinator {
             })
         } else {
             do {
-                try self.addPersistentStoreWithType(storeDescription.type, configuration: storeDescription.configuration, URL: storeDescription.URL, options: storeDescription.options)
+                try self.addPersistentStore(ofType: storeDescription.type, configurationName: storeDescription.configuration, at: storeDescription.url, options: storeDescription.options)
                 block(storeDescription, nil)
             } catch let error as NSError {
                 block(storeDescription, error)

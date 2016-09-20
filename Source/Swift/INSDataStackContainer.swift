@@ -26,7 +26,7 @@
 import CoreData
 
 class INSDataStackContainer: INSPersistentContainer {
-    private class INSDataStackContainerManagedObjectContext: NSManagedObjectContext {
+    fileprivate class INSDataStackContainerManagedObjectContext: NSManagedObjectContext {
         deinit {
             self.ins_automaticallyObtainPermanentIDsForInsertedObjects = false
             
@@ -40,18 +40,16 @@ class INSDataStackContainer: INSPersistentContainer {
     override init(name: String, managedObjectModel model: NSManagedObjectModel) {
         super.init(name: name, managedObjectModel: model)
         if #available(iOS 10.0, OSX 10.12, *) {
-            #if swift(>=2.3)
-                viewContext.automaticallyMergesChangesFromParent = true
-            #endif
+            viewContext.automaticallyMergesChangesFromParent = true
         } else {
             viewContext.ins_automaticallyMergesChangesFromParent = true
         }
     }
     
     override func newBackgroundContext() -> NSManagedObjectContext {
-        let context = INSDataStackContainerManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-        if let parentContext = viewContext.parentContext {
-            context.parentContext = parentContext
+        let context = INSDataStackContainerManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        if let parentContext = viewContext.parent {
+            context.parent = parentContext
         } else {
             context.persistentStoreCoordinator = persistentStoreCoordinator
         }
